@@ -505,11 +505,15 @@ function loadArticles() {
     const titleMatch = (currentLanguage === 'es' ? 
       article.title.toLowerCase() : article.titleEn.toLowerCase()).includes(searchTerm);
     
-    const categoryMatch = !selectedCategory || (currentLanguage === 'es' ? 
-      article.category === selectedCategory : article.categoryEn === selectedCategory);
+      const descriptionMatch = (currentLanguage === 'es' ? 
+        article.excerpt.toLowerCase() : article.excerptEn.toLowerCase()).includes(searchTerm);
+      
+      const categoryMatch = !selectedCategory || (currentLanguage === 'es' ? 
+        article.category === selectedCategory : article.categoryEn === selectedCategory);
+      
+      return (titleMatch || descriptionMatch) && categoryMatch;
+    });
     
-    return titleMatch && categoryMatch;
-  });
   // Sort articles by date
   filteredArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
   
