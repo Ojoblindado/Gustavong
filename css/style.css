@@ -346,6 +346,17 @@ header.scrolled {
     display: none !important;
   }
 }
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: none; /* Ocultar por defecto */
+    flex-direction: column;
+  }
+
+  .mobile-nav.show {
+    display: flex !important; /* Mostrar cuando tenga la clase 'show' */
+  }
+}
+
 
 /* Hero Section */
 .hero {
@@ -719,7 +730,6 @@ header.scrolled {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  line-clamp: 2;
   line-clamp: 2;
   overflow: hidden;
 }
@@ -1438,7 +1448,6 @@ header.scrolled {
   opacity: 0.9;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
   overflow: hidden;
 }
 
@@ -1614,7 +1623,7 @@ header.scrolled {
 
 /* No Scroll for Body */
 body.no-scroll {
-  overflow: hidden;
+  overflow: visible !important;
 }
 
 /* Contact Page */
