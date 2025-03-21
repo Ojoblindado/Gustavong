@@ -345,6 +345,8 @@ header.scrolled {
   }
 }
 @media (max-width: 768px) {
+
+  
   .mobile-nav {
     display: none; /* Ocultar por defecto */
     flex-direction: column;

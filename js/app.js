@@ -46,18 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
       break;
   }
   
-  // Initialize menu toggle
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileNav = document.getElementById('mobileNav');
-  
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', function() {
-      mobileNav.classList.toggle('show');
-      menuToggle.classList.toggle('active');
-    });
-  } else {
-    console.error('menuToggle or mobileNav element not found');
-  }
+
   // Initialize language dropdown
   const languageButton = document.querySelector('.language-button');
   const languageDropdown = document.getElementById('languageDropdown');
@@ -177,11 +166,14 @@ function initNavigation() {
   const menuToggle = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mobileNav');
   
-  menuToggle.addEventListener('click', function() {
-    mobileNav.classList.toggle('show');
-    menuToggle.classList.toggle('active');
-  });
-  
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', function() {
+      mobileNav.classList.toggle('show');
+      menuToggle.classList.toggle('active');
+    });
+  } else {
+    console.error('menuToggle or mobileNav element not found');
+  }
   // Navbar scroll behavior
   const navbar = document.getElementById('navbar');
   
