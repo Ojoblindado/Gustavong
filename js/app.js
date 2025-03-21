@@ -45,24 +45,38 @@ document.addEventListener('DOMContentLoaded', function() {
       initContactPage();
       break;
   }
-  applyTranslations();
-  menuToggle.addEventListener('click', function() {
-    mobileNav.classList.toggle('show');
-  });
-
+  
+  // Initialize menu toggle
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
-  document.addEventListener('click', function(event) {
-    const languageButton = document.querySelector('.language-button');
-    const languageDropdown = document.querySelector('.language-dropdown');
-    
-    if (languageButton && event.target === languageButton) {
-      languageDropdown.classList.toggle('show');
-    } else if (languageDropdown && !languageDropdown.contains(event.target)) {
-      languageDropdown.classList.remove('show');
-    }
-  });
   
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', function() {
+      mobileNav.classList.toggle('show');
+    });
+  } else {
+    console.error('menuToggle or mobileNav element not found');
+  }
+
+  // Initialize language dropdown
+  const languageButton = document.querySelector('.language-button');
+  const languageDropdown = document.querySelector('.language-dropdown');
+  
+  if (languageButton && languageDropdown) {
+    languageButton.addEventListener('click', function() {
+      languageDropdown.classList.toggle('show');
+    });
+    
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.language-selector')) {
+        languageDropdown.classList.remove('show');
+      }
+    });
+  } else {
+    console.error('languageButton or languageDropdown element not found');
+  }
+  
+  applyTranslations();
 });
 
 // Helper function to get current page name
@@ -1071,11 +1085,13 @@ function debounce(func, wait) {
 }
 
 function applyTranslations() {
-  document.querySelectorAll('[data-key]').forEach(element => {
+  const elements = document.querySelectorAll('[data-key]');
+  elements.forEach(element => {
     const key = element.getAttribute('data-key');
-    const translation = translations[key][currentLanguage];
-    if (translation) {
-      element.textContent = translation;
+    if (translations[key] && translations[key][currentLanguage]) {
+      element.textContent = translations[key][currentLanguage];
+    } else {
+      console.warn(`Translation for key "${key}" in language "${currentLanguage}" not found.`);
     }
   });
 }

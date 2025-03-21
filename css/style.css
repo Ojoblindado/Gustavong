@@ -52,8 +52,6 @@ body {
   color: var(--color-foreground);
   background-color: var(--color-background);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -370,7 +368,7 @@ header.scrolled {
 .hero-image {
   position: relative;
   width: 60%;
-  top: 20;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -727,11 +725,6 @@ header.scrolled {
   margin-bottom: 0.75rem;
   line-height: 1.3;
   font-weight: 700;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  overflow: hidden;
 }
 
 .press-summary {
