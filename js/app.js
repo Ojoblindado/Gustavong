@@ -47,17 +47,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Initialize menu toggle
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mobileNav = document.querySelector('.mobile-nav');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
   
   if (menuToggle && mobileNav) {
     menuToggle.addEventListener('click', function() {
       mobileNav.classList.toggle('show');
+      menuToggle.classList.toggle('active');
     });
   } else {
     console.error('menuToggle or mobileNav element not found');
   }
-
   // Initialize language dropdown
   const languageButton = document.querySelector('.language-button');
   const languageDropdown = document.getElementById('languageDropdown');
