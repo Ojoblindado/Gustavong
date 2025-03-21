@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize language dropdown
   const languageButton = document.querySelector('.language-button');
-  const languageDropdown = document.querySelector('.language-dropdown');
+  const languageDropdown = document.getElementById('languageDropdown');
+  const languageOptions = document.querySelectorAll('.language-option');
   
   if (languageButton && languageDropdown) {
     languageButton.addEventListener('click', function() {
@@ -71,6 +72,15 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!event.target.closest('.language-selector')) {
         languageDropdown.classList.remove('show');
       }
+    });
+    
+    // Set language on option click
+    languageOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        const language = this.getAttribute('data-language');
+        setLanguage(language);
+        languageDropdown.classList.remove('show');
+      });
     });
   } else {
     console.error('languageButton or languageDropdown element not found');
@@ -97,32 +107,6 @@ function initLanguage() {
   // Get language from local storage or default to Spanish
   const storedLanguage = localStorage.getItem('language') || 'es';
   setLanguage(storedLanguage);
-  
-  // Add event listener to language selector
-  const languageButton = document.querySelector('.language-button');
-  const languageDropdown = document.getElementById('languageDropdown');
-  const languageOptions = document.querySelectorAll('.language-option');
-  
-  // Toggle dropdown
-  languageButton.addEventListener('click', function() {
-    languageDropdown.classList.toggle('show');
-  });
-  
-  // Close dropdown when clicking outside
-  document.addEventListener('click', function(event) {
-    if (!event.target.closest('.language-selector')) {
-      languageDropdown.classList.remove('show');
-    }
-  });
-  
-  // Set language on option click
-  languageOptions.forEach(option => {
-    option.addEventListener('click', function() {
-      const language = this.getAttribute('data-language');
-      setLanguage(language);
-      languageDropdown.classList.remove('show');
-    });
-  });
 }
 
 // Set language and update UI
