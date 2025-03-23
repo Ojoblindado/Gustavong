@@ -331,8 +331,8 @@ function loadFeaturedContent() {
           <h3 class="book-title">${currentLanguage === 'es' ? featuredBook.title : featuredBook.titleEn}</h3>
           <p class="book-description">${currentLanguage === 'es' ? featuredBook.description : featuredBook.descriptionEn}</p>
           <div class="book-details">
-            <span class="book-publisher">${currentLanguage === 'es' ? featuredBook.publisher : featuredBook.publisherEn}</span>
-            <span class="book-date">${formatDate(featuredBook.publishDate, currentLanguage)}</span>
+            <span class="book-publisher">${featuredBook.publisher}</span>
+            <span class="book-date">${featuredBook.publishDate}</span>
           </div>
           <a href="libros.html" class="book-link">
             <span>${translations['home.view.all'][currentLanguage]}</span>
@@ -1014,10 +1014,7 @@ function initContactPage() {
       event.preventDefault();
       
       // Get form data
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
+      const formData = new FormData(contactForm);
       
       // Disable submit button and show loading
       const submitButton = document.getElementById('submitForm');
@@ -1030,11 +1027,36 @@ function initContactPage() {
         submitButton.disabled = true;
       }
       
-      // Simulate form submission (would be an actual API call in a real site)
-      setTimeout(() => {
-        // Reset form
-        contactForm.reset();
-        
+      // Send form data to Formspree
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Reset form
+          contactForm.reset();
+          
+          // Enable submit button
+          if (submitButton) {
+            const buttonText = submitButton.querySelector('[data-key="contact.send"]');
+            if (buttonText) {
+              buttonText.textContent = translations['contact.send'][currentLanguage];
+            }
+            submitButton.disabled = false;
+          }
+          
+          // Show success message
+          showToast(translations['contact.thank.you'][currentLanguage]);
+        } else {
+          throw new Error('Network response was not ok.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
         // Enable submit button
         if (submitButton) {
           const buttonText = submitButton.querySelector('[data-key="contact.send"]');
@@ -1043,10 +1065,9 @@ function initContactPage() {
           }
           submitButton.disabled = false;
         }
-        
-        // Show success message
-        showToast(translations['contact.thank.you'][currentLanguage]);
-      }, 1500);
+        // Show error message
+        showToast('Error al enviar el mensaje. Inténtalo de nuevo.');
+      });
     });
   }
 }

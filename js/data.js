@@ -1164,7 +1164,7 @@ const booksData = [
   },
   {
     id: 9,
-    title: '10.134 kilómetros a través de China',
+    title: '10.134 kilómetros a través de China',
     titleEn: '10,134 kilometers through China',
     description: 'Un recorrido de dos meses en tren por más de 20 ciudades, a través de grandes urbes, desiertos, campos de cultivo, montañas, sitios arqueológicos y aldeas de China. Y el encuentro con la aldea donde vivieron sus ancestros.',
     descriptionEn: 'A two-month train journey through more than 20 cities, through large cities, deserts, farmland, mountains, archaeological sites, and villages in China. And the encounter with the village where his ancestors lived.',
@@ -1175,38 +1175,38 @@ const booksData = [
   },
   {
     id: 10,
-    title: '',
-    titleEn: '',
-    description: '',
-    descriptionEn: '',
-    cover: '',
-    publishDate: '',
-    publisher: '',
+    title: 'Todo sobre China',
+    titleEn: 'Everything about China',
+    description: 'El abordaje que hacemos sobre China es una mirada para nada abstracta, distinta y muy distante de la que podría haber hecho un marroquí, un canadiense o un japonés; o, en particular,un chino. Formados en humanidades y periodismo, por años hemos aprendido de China con una cantidad de expertos argentinos que desde la academia, la función pública y los negocios vienen haciendo un trabajo notable en cuanto a estudiar y vincularse con ese país, hasta hace unos años de manera silenciosa y en la actualidad, dada la envergadura que alcanzó la relación bilateral, con mayor visibilidad.',
+    descriptionEn: 'The approach we take to China is a look that is by no means abstract, different, and very different from what a Moroccan, a Canadian, or a Japanese could have done; or, in particular, a Chinese. Trained in humanities and journalism, for years we have learned about China from a number of Argentine experts who have been doing a remarkable job of studying and engaging with that country from academia, public service, and business, until a few years ago quietly and today, given the scope that the bilateral relationship has reached, with greater visibility.',
+    cover: 'images/libros/todo-sobre-china.jpg',
+    publishDate: 'Buenos Aires, 2016',
+    publisher: 'Paidós',
   
   },
   {
     id: 11,
-    title: '',
-    titleEn: '',
-    description: '',
-    descriptionEn: '',
-    cover: '',
-    publishDate: '',
-    publisher: '',
+    title: 'Mariposa de otoño',
+    titleEn: 'Autumn Butterfly', 
+    description: 'El libro Mariposa de otoño es una novela, pero una que debe construir el lector con todas las anotaciones que Ng –que oficia de diarista y narrador– despliega entre una escena y otra, con temporalidades, geografías y tonalidades distintas, como si mirásemos un álbum con fotografías tomadas con una Kodak Pocket de los 70, con una réflex en los 80 y un iPhone de hace un par de semanas. Pero si hubiera que dividir en dos el libro, claramente nos encontramos con dos partes: la primera y la segunda, que comienza con el subtítulo “Blanco de tiro”, donde aclara que en diciembre de 2015, 42 años después de que sus padres se separaran, su madre murió y el narrador-protagonista-autor viaja a Nueva York a darle la noticia en persona a su padre. De allí en más asistimos a “un relato de esos días”. El encuentro con el padre es, como escribe al final, algo así como una fuga. Nuestro narrador-autor-diarista observa el local de loterías como “una mezcla de vieja estación de trenes de Bangladesh con un club de bochas de un pueblo de la provincia de Buenos Aires”.',
+    descriptionEn: 'The book Mariposa de otoño is a novel, but one that the reader must build with all the annotations that Ng - who acts as a diarist and narrator - unfolds between one scene and another, with different temporalities, geographies, and tones, as if we were looking at an album with photographs taken with a Kodak Pocket from the 70s, with a reflex in the 80s and an iPhone from a couple of weeks ago. But if the book had to be divided in two, we clearly find two parts: the first and the second, which begins with the subtitle "Blanco de tiro", where it clarifies that in December 2015, 42 years after his parents separated, his mother died and the narrator-protagonist-author travels to New York to give the news in person to his father. From then on we witness "a story of those days". The encounter with the father is, as he writes at the end, something like an escape. Our narrator-author-diarist observes the lottery store as "a mixture of an old train station in Bangladesh with a bocce club in a town in the province of Buenos Aires".',
+    cover: 'images/libros/mariposa-de-otono.jpg',
+    publishDate: 'Buenos Aires, 2020',
+    publisher: 'El Bien del Sauce',
   
   },
   {
     id: 12,
-    title: '',
-    titleEn: '',
-    description: '',
-    descriptionEn: '',
-    cover: '',
-    publishDate: '',
-    publisher: '',
+    title: 'La intimidad de las islas',
+    titleEn: 'The intimacy of the islands',
+    description: 'Entre el paisaje del Delta y la ciudad de San Nicolás, reflexiones sobre la paternidad y los vínculos. Los dibujos de Juan Aiello apuntalan el relato.',
+    descriptionEn: 'Between the landscape of the Delta and the city of San Nicolás, reflections on fatherhood and relationships. The drawings of Juan Aiello support the story.',
+    cover: 'images/libros/intimidad-islas.jpg',
+    publishDate: 'Buenos Aires, 2022',
+    publisher: 'El Bien del Sauce',
   
   },
-  {
+  /*{
     id: 13,
     title: '',
     titleEn: '',
@@ -1216,7 +1216,7 @@ const booksData = [
     publishDate: '',
     publisher: '',
   
-  }
+  }*/ // Agrega más libros según sea necesario
 ];
 
 // Photo Galleries
